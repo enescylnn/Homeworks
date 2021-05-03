@@ -3,34 +3,38 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Course course1 = new Course(1,"Java  ","Engin Demiroğ",30,"Nisan");
-		Course course2 = new Course(2,"Python","Engin Demiroğ",20,"Temmuz");
-		Course course3 = new Course(3,"C#    ","Engin Demiroğ",30,"Ocak");
-		Course course4 = new Course(4,"Html  ","Engin Demiroğ",25,"Haziran");
+		User user1 = new User(1,"Enes","12345","asdasd@gmail.com");
 		
-		Course[] courses = {
-				course1,
-				course2,
-				course3,
-				course4
-		};
+		User student = new User(2,"Student","6789","bnmbnm@gmail.com");
 		
-		System.out.println("Course Name       Price" +"\n");
+		User instructor = new User(3,"Instructor","1234","engindemirog@gmail.com");
 		
-		for (Course course : courses) {
-			System.out.println(course.name+"             " + course.unitPrice);
+		User[] users = {user1,student,instructor};
+		
+		for (User user : users) {
+			System.out.println(user.getUserName());
 		}
 		
+		System.out.println("--------------------");
 		
-		System.out.println("-----------------");
+		UserManager userManager = new UserManager();
+		userManager.add(user1);
+		userManager.add(student);
+		userManager.add(instructor);
 		
-		CourseManager courseManager = new CourseManager();
-		courseManager.addToSystem("course1");
-		courseManager.addToSystem("course2");
-		courseManager.addToSystem("course3");
-		courseManager.addToSystem("course4");
-		System.out.println("-----------------");
-		courseManager.refund("Html");
+		System.out.println("--------------------");
+		
+		InstructorManager instructorManager = new InstructorManager();
+		instructorManager.lessonHour(3);
+		instructorManager.workingDay(2);
+		
+		System.out.println("--------------------");
+		
+		StudentManager studentManager = new StudentManager();
+		studentManager.numOfHomewok(2);
+		studentManager.examGrade(90);
+		studentManager.examGrade(60);
+		
 	}
 
 }
